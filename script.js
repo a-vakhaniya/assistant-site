@@ -1,21 +1,13 @@
-const btn = document.querySelector('.btn')  // нашли кнопку на странице
-const title  = document.querySelector('.hero h2')
-const notification = document.querySelector('.notification') // нашли уведомление
+const title = document.querySelector('.hero h1')
 
-btn.addEventListener('click', function() {  // слушаем клик
-    event.preventDefault()  // отменяем переход по ссылке
-    title.innerHTML = "Спасибо! Напишу вам в ближайшее время 👋"
-    notification.style.display = 'block' // показываем уведомление
-    setTimeout(function() { // код который выполнится через задержку
-        window.location.href = btn.href// переадресация на другую страницу
-    }, 2000) // 2000 = 2 секунда
- 
-})
+const btn = document.querySelector('.btn')  // нашли кнопку на странице
+
+const notification = document.querySelector('.notification') // нашли уведомление
 
 // находим все ссылки в навигации
 const navLinks = document.querySelectorAll('nav a')
 
-// для каждой ссылки добавляем обработчик клика
+// для каждой ссылки добавляем обработчик клика 
 navLinks.forEach(function(link) {
     link.addEventListener('click', function(event) {
         event.preventDefault()
@@ -28,6 +20,20 @@ navLinks.forEach(function(link) {
 })
 
 
+let clicked = false
+
+btn.addEventListener('click', function(event) {
+    event.preventDefault()
+    
+    if (clicked === false) {
+        // твой код для первого клика
+        title.innerHTML = "Cпасибо! Напишу вам в ближайшее время 👋"
+        clicked = true
+    } else {
+        // твой код для второго клика
+        title.innerHTML = "Я уже получил ваше сообщение!"
+    }
+})
 
 
  
