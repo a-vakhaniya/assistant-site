@@ -19,19 +19,27 @@ navLinks.forEach(function(link) {
     })
 })
 
-
+/* при клике меняется сообщение */
 let clicked = false
+
+function showThanks() {
+    // код первого клика
+    title.innerHTML = "Спасибо! Напишу вам в ближайшее время 👋"
+    clicked = true
+}
+
+function showAlready() {
+    // код второго клика
+    title.innerHTML = "Я уже получил ваше сообщение!"
+}
 
 btn.addEventListener('click', function(event) {
     event.preventDefault()
     
     if (clicked === false) {
-        // твой код для первого клика
-        title.innerHTML = "Cпасибо! Напишу вам в ближайшее время 👋"
-        clicked = true
+        showThanks()
     } else {
-        // твой код для второго клика
-        title.innerHTML = "Я уже получил ваше сообщение!"
+        showAlready()
     }
 })
 
